@@ -5,7 +5,7 @@ import {SafeAreaProps} from './types';
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-export const SafeArea = ({children, backgroundColor}: SafeAreaProps) => {
+export const SafeArea = ({children, backgroundColor, style}: SafeAreaProps) => {
   const insets = useSafeAreaInsets();
 
   return (
@@ -13,6 +13,7 @@ export const SafeArea = ({children, backgroundColor}: SafeAreaProps) => {
       backgroundColor={backgroundColor}
       style={{
         paddingTop: insets.top,
+        ...style,
       }}>
       {children}
     </SafeAreaView>

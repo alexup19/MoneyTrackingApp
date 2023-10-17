@@ -4,3 +4,4 @@ export {BaseHeader} from './base-header';
 export {BasePickerButton} from './base-picker-button';
 export {SafeArea} from './safe-area';
 export {AttachmentButton} from './attachment-button';
+export {TransactionCard} from './transaction-card';

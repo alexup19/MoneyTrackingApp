@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 import {verticalScale, scale} from 'utils/scaling';
+import {HeaderTextProps} from './types';
 
 export const Container = styled.View`
   width: 100%;
@@ -9,14 +10,16 @@ export const Container = styled.View`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  border-bottom-width: ${props => (props.hasBorder ? '1px' : '0px')};
+  border-bottom-color: rgba(0, 0, 0, 0.04);
 `;
 
-export const TitleText = styled.Text`
+export const TitleText = styled.Text<HeaderTextProps>`
   font-family: Inter;
   font-size: ${verticalScale(18)}px;
   font-weight: 600;
   line-height: ${verticalScale(20)}px;
-  color: #fcfcfc;
+  color: ${props => props.color || '#fcfcfc'};
   text-align: center;
 `;
 

@@ -5,6 +5,6 @@ import {BaseButtonProps} from './types';
 
 export const BaseButton = (props: BaseButtonProps) => (
   <Button {...props}>
-    <ButtonText>{props.title}</ButtonText>
+    <ButtonText style={props.textStyle}>{props.title}</ButtonText>
   </Button>
 );

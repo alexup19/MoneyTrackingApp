@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {StatusBar} from 'react-native';
 
@@ -12,6 +12,10 @@ import {
 } from 'atoms';
 import {DatePickerButton} from 'molecules';
 
+import {TransactionCategories, TransactionTypes} from 'utils/general-types';
+import {RouteNames} from 'navigation/route-names';
+
+import {useTransaction} from './hooks';
 import {
   Form,
   TextContainer,
@@ -21,24 +25,53 @@ import {
   TransactionInput,
   InputContainer,
 } from './styles';
+import {TransactionScreenProps} from './types';
 
-export enum TransactionTypes {
-  expense = 'Expense',
-  income = 'Income',
-}
+export const TransactionScreen: React.FC<TransactionScreenProps> = ({
+  navigation,
+  route,
+}) => {
+  const {type, transactionId = 0} = route.params;
 
-export const TransactionScreen = () => {
-  const type = TransactionTypes.expense;
+  const {
+    amount,
+    title,
+    date,
+    category,
+    description,
+    wallet,
+    setAmount,
+    setTitle,
+    setDate,
+    setCategory,
+    setDescription,
+    setWallet,
+    saveTransaction,
+  } = useTransaction(type, transactionId);
 
-  const [amount, setAmount] = useState('0');
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState(new Date());
-  const [category, setCategory] = useState(null);
-  const [description, setDescription] = useState('');
-  const [wallet, setWallet] = useState(null);
+  const addNewTransaction = () => {
+    saveTransaction();
+    navigation.goBack();
+  };
 
   const backgroundColor =
     type === TransactionTypes.expense ? '#FD3C4A' : '#00A86B';
+
+  const onCategoryButtonPress = () =>
+    navigation.navigate(RouteNames.picker, {
+      title: 'Categories',
+      selectedItem: category,
+      setSelectedItem: setCategory,
+      items: TransactionCategories,
+    });
+
+  const onWalletButtonPress = () =>
+    navigation.navigate(RouteNames.picker, {
+      title: 'Wallets',
+      selectedItem: wallet,
+      setSelectedItem: setWallet,
+      items: [],
+    });
 
   return (
     <SafeArea backgroundColor={backgroundColor}>
@@ -59,15 +92,23 @@ export const TransactionScreen = () => {
             onChangeText={setTitle}
           />
           <DatePickerButton selectedDate={date} setDate={setDate} />
-          <BasePickerButton value={category} placeholder="Category" />
+          <BasePickerButton
+            value={category.title}
+            placeholder="Category"
+            onPress={onCategoryButtonPress}
+          />
           <BaseTextInput
             placeholder="Description"
             value={description}
             onChangeText={setDescription}
           />
           <AttachmentButton />
-          <BasePickerButton value={wallet} placeholder="Wallet" />
-          <BaseButton title="Continue" />
+          <BasePickerButton
+            value={wallet.title}
+            placeholder="Wallet"
+            onPress={onWalletButtonPress}
+          />
+          <BaseButton title="Continue" onPress={addNewTransaction} />
         </InputContainer>
       </Form>
     </SafeArea>

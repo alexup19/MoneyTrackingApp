@@ -1,51 +1,22 @@
 import React from 'react';
 
-import {StatusBar, FlatList} from 'react-native';
+import {StatusBar} from 'react-native';
 
-import {SafeArea, TransactionCard} from 'atoms';
+import {SafeArea} from 'atoms';
 
+import {Colors} from 'theme/colors';
+
+import {AccountInfo, Header, Tabs} from './components';
 import {HomeScreenProps} from './types';
-import {Transaction, TransactionTypes} from 'utils/general-types';
-import {AddButton, Container, ItemSeparator} from './styles';
+import {Container} from './styles';
 
-import {useTransactionStore} from 'store/transaction-store';
-import {RouteNames} from 'navigation/route-names';
-
-import {AccountInfo} from './components';
-
-export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
-  const {transactions} = useTransactionStore();
-
-  const addIncome = () =>
-    navigation.navigate(RouteNames.transaction, {
-      type: TransactionTypes.income,
-    });
-
-  const addExpense = () =>
-    navigation.navigate(RouteNames.transaction, {
-      type: TransactionTypes.expense,
-    });
-
-  const _renderItem = ({item}: {item: Transaction}) => (
-    <TransactionCard transaction={item} />
-  );
-
-  const _keyExtractor = (item: Transaction) => String(item.id);
-
-  return (
-    <SafeArea backgroundColor="#FFFFFF">
-      <StatusBar barStyle="dark-content" />
-      <Container>
-        <AccountInfo />
-        <AddButton onPress={addIncome} />
-        <AddButton onPress={addExpense} />
-        <FlatList
-          data={transactions}
-          renderItem={_renderItem}
-          ItemSeparatorComponent={ItemSeparator}
-          keyExtractor={_keyExtractor}
-        />
-      </Container>
-    </SafeArea>
-  );
-};
+export const HomeScreen: React.FC<HomeScreenProps> = () => (
+  <SafeArea backgroundColor={Colors.light[100]}>
+    <StatusBar barStyle="dark-content" />
+    <Header />
+    <Container>
+      <AccountInfo />
+    </Container>
+    <Tabs />
+  </SafeArea>
+);

@@ -1,13 +1,14 @@
 import styled from 'styled-components/native';
 
 import {verticalScale, scale} from 'utils/scaling';
+import {BaseInputProps} from './types';
 
-export const TextInput = styled.TextInput`
+export const TextInput = styled.TextInput<BaseInputProps>`
   width: 100%;
   height: ${verticalScale(56)}px;
   border-width: 1px;
   border-radius: 16px;
-  border-color: #f1f1fa;
+  border-color: ${props => props.borderColor || '#f1f1fa'};
   color: #0d0e0f;
   font-weight: 400;
   line-height: ${verticalScale(18)}px;

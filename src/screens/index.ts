@@ -6,3 +6,5 @@ export {OnboardingScreen} from './onboarding';
 export {SignUpScreen} from './sign-up';
 export {LoginScreen} from './login';
 export {PinScreen} from './pin';
+export {ProfileScreen} from './profile/profile';
+export {EditProfileScreen} from './edit-profile/edit-profile';

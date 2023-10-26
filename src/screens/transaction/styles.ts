@@ -1,19 +1,20 @@
 import styled from 'styled-components/native';
 
+import {StyleSheet} from 'react-native';
+
 import {verticalScale, scale} from 'utils/scaling';
 
-export const InputContainer = styled.View`
+import {ColorItem} from './types';
+
+export const InputContainer = styled.ScrollView`
   background-color: #fff;
   width: 100%;
   border-radius: 32px 32px 0px 0px;
-  padding: ${verticalScale(24)}px ${scale(16)}px ${verticalScale(50)}px
-    ${scale(16)}px;
-  gap: ${verticalScale(16)}px;
-  justify-content: flex-end;
+  padding: ${verticalScale(24)}px ${scale(16)}px 0px ${scale(16)}px;
 `;
 
-export const TitleText = styled.Text`
-  color: rgba(252, 252, 252, 0.4);
+export const TitleText = styled.Text<ColorItem>`
+  color: ${props => props.color || 'rgba(252, 252, 252, 0.4)'};
   font-family: Inter;
   font-size: ${verticalScale(18)}px;
   font-weight: 600;
@@ -29,9 +30,10 @@ export const TransactionInput = styled.TextInput`
   line-height: ${verticalScale(77)}px;
 `;
 
-export const MoneySign = styled.Text`
+export const MoneySign = styled.Text<ColorItem>`
   font-family: Inter;
-  color: #fcfcfc;
+  align-self: center;
+  color: ${props => props.color || '#fcfcfc'};
   font-size: ${verticalScale(64)}px;
   font-weight: 600;
   line-height: ${verticalScale(77)}px;
@@ -51,3 +53,9 @@ export const Form = styled.View`
   flex: 1;
   justify-content: flex-end;
 `;
+
+export const formStyles = StyleSheet.create({
+  inputContainer: {
+    gap: verticalScale(16),
+  },
+});

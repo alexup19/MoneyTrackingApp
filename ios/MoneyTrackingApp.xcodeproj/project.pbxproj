@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MoneyTrackingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoneyTrackingAppTests.m */; };
+		0499E036DED6418E89A0801B /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81BB4DC3BA9A4380857B0E00 /* Inter-Thin.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-MoneyTrackingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-MoneyTrackingApp.a */; };
+		10C79220F3744468879B64DB /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC912C5B53048B5AE92593B /* Inter-Black.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		4A8884E175AC426BB81E29A7 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A8BA5260DA94B66BF16B43C /* Inter-SemiBold.ttf */; };
+		6247718C594CA5ACE0751035 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA8C149E18840750F21D66 /* ExpoModulesProvider.swift */; };
+		690AB5049AB740F1BA221E4F /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F28D1828CF44916A1C19140 /* Inter-Light.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-MoneyTrackingApp-MoneyTrackingAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MoneyTrackingApp-MoneyTrackingAppTests.a */; };
+		77F27110E563471F9F9CEDBD /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58398330E9534B08A8688CDB /* Inter-Bold.ttf */; };
+		7A50708F09F445A09A9BE40F /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D7659A653B94713804CA56B /* Inter-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		86C3A18BC22344E39C032C6C /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC57FB18D2AF404992590749 /* Inter-Medium.ttf */; };
+		B18E0F914854C2E90D0FAF27 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E4D0319E264BA9879BCC3 /* ExpoModulesProvider.swift */; };
+		DBD516B09E00437C933D17C5 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD2F546813304593BB2E01E6 /* Inter-ExtraLight.ttf */; };
+		E41705C2B59C4E13B3611301 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE8459DD41174C2B884ACB55 /* Inter-ExtraBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +41,8 @@
 		00E356EE1AD99517003FC87E /* MoneyTrackingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MoneyTrackingAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyTrackingAppTests.m; sourceTree = "<group>"; };
+		0A8BA5260DA94B66BF16B43C /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../assets/fonts/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		0D7659A653B94713804CA56B /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MoneyTrackingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTrackingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MoneyTrackingApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = MoneyTrackingApp/AppDelegate.mm; sourceTree = "<group>"; };
@@ -38,11 +51,20 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MoneyTrackingApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-MoneyTrackingApp-MoneyTrackingAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyTrackingApp-MoneyTrackingAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-MoneyTrackingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTrackingApp.debug.xcconfig"; path = "Target Support Files/Pods-MoneyTrackingApp/Pods-MoneyTrackingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		510E4D0319E264BA9879BCC3 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MoneyTrackingApp-MoneyTrackingAppTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-MoneyTrackingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTrackingApp.release.xcconfig"; path = "Target Support Files/Pods-MoneyTrackingApp/Pods-MoneyTrackingApp.release.xcconfig"; sourceTree = "<group>"; };
+		58398330E9534B08A8688CDB /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-MoneyTrackingApp-MoneyTrackingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTrackingApp-MoneyTrackingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyTrackingApp-MoneyTrackingAppTests/Pods-MoneyTrackingApp-MoneyTrackingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-MoneyTrackingApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyTrackingApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76EA8C149E18840750F21D66 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MoneyTrackingApp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MoneyTrackingApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81BB4DC3BA9A4380857B0E00 /* Inter-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Thin.ttf"; path = "../assets/fonts/Inter-Thin.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-MoneyTrackingApp-MoneyTrackingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTrackingApp-MoneyTrackingAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyTrackingApp-MoneyTrackingAppTests/Pods-MoneyTrackingApp-MoneyTrackingAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		8F28D1828CF44916A1C19140 /* Inter-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Light.ttf"; path = "../assets/fonts/Inter-Light.ttf"; sourceTree = "<group>"; };
+		AD2F546813304593BB2E01E6 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraLight.ttf"; path = "../assets/fonts/Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		AE8459DD41174C2B884ACB55 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraBold.ttf"; path = "../assets/fonts/Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		DC57FB18D2AF404992590749 /* Inter-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.ttf"; path = "../assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; };
+		DDC912C5B53048B5AE92593B /* Inter-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Black.ttf"; path = "../assets/fonts/Inter-Black.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -83,6 +105,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1379FC200AF6A7FA440FB50F /* MoneyTrackingApp */ = {
+			isa = PBXGroup;
+			children = (
+				76EA8C149E18840750F21D66 /* ExpoModulesProvider.swift */,
+			);
+			name = MoneyTrackingApp;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* MoneyTrackingApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +136,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2EBCDC699F9D99FA90C30606 /* MoneyTrackingAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				510E4D0319E264BA9879BCC3 /* ExpoModulesProvider.swift */,
+			);
+			name = MoneyTrackingAppTests;
+			sourceTree = "<group>";
+		};
+		3CAE9F17353A4FA9917FF473 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DDC912C5B53048B5AE92593B /* Inter-Black.ttf */,
+				58398330E9534B08A8688CDB /* Inter-Bold.ttf */,
+				AE8459DD41174C2B884ACB55 /* Inter-ExtraBold.ttf */,
+				AD2F546813304593BB2E01E6 /* Inter-ExtraLight.ttf */,
+				8F28D1828CF44916A1C19140 /* Inter-Light.ttf */,
+				DC57FB18D2AF404992590749 /* Inter-Medium.ttf */,
+				0D7659A653B94713804CA56B /* Inter-Regular.ttf */,
+				0A8BA5260DA94B66BF16B43C /* Inter-SemiBold.ttf */,
+				81BB4DC3BA9A4380857B0E00 /* Inter-Thin.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +177,8 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				3CAE9F17353A4FA9917FF473 /* Resources */,
+				BDAE066BE3B7D6B3D65FE141 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -148,6 +205,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BDAE066BE3B7D6B3D65FE141 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				1379FC200AF6A7FA440FB50F /* MoneyTrackingApp */,
+				2EBCDC699F9D99FA90C30606 /* MoneyTrackingAppTests */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +222,7 @@
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoneyTrackingAppTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				D3EA00E503DB975ED34B892E /* [Expo] Configure project */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -178,6 +245,7 @@
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
+				D00FA78ADA56E058A7768E98 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
@@ -244,6 +312,15 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				10C79220F3744468879B64DB /* Inter-Black.ttf in Resources */,
+				77F27110E563471F9F9CEDBD /* Inter-Bold.ttf in Resources */,
+				E41705C2B59C4E13B3611301 /* Inter-ExtraBold.ttf in Resources */,
+				DBD516B09E00437C933D17C5 /* Inter-ExtraLight.ttf in Resources */,
+				690AB5049AB740F1BA221E4F /* Inter-Light.ttf in Resources */,
+				86C3A18BC22344E39C032C6C /* Inter-Medium.ttf in Resources */,
+				7A50708F09F445A09A9BE40F /* Inter-Regular.ttf in Resources */,
+				4A8884E175AC426BB81E29A7 /* Inter-SemiBold.ttf in Resources */,
+				0499E036DED6418E89A0801B /* Inter-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +421,44 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyTrackingApp-MoneyTrackingAppTests/Pods-MoneyTrackingApp-MoneyTrackingAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D00FA78ADA56E058A7768E98 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-MoneyTrackingApp/expo-configure-project.sh\"\n";
+		};
+		D3EA00E503DB975ED34B892E /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-MoneyTrackingApp-MoneyTrackingAppTests/expo-configure-project.sh\"\n";
+		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* MoneyTrackingAppTests.m in Sources */,
+				B18E0F914854C2E90D0FAF27 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +530,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				6247718C594CA5ACE0751035 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +555,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MoneyTrackingAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,6 +566,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyTrackingApp.app/MoneyTrackingApp";
@@ -462,7 +580,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = MoneyTrackingAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +591,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyTrackingApp.app/MoneyTrackingApp";
@@ -498,6 +617,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MoneyTrackingApp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -524,6 +644,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MoneyTrackingApp;
 				SWIFT_VERSION = 5.0;
@@ -581,7 +702,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -658,7 +779,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",

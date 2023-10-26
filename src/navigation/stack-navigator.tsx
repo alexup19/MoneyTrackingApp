@@ -5,15 +5,17 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   TransactionScreen,
   PickerScreen,
-  HomeScreen,
   TransactionDetailScreen,
   OnboardingScreen,
   SignUpScreen,
   LoginScreen,
-  PinScreen,
+  EditProfileScreen,
 } from 'screens';
 import {RouteNames} from './route-names';
 import {PickerItem, TransactionTypes} from 'utils/general-types';
+
+import {BottomTabsNavigator} from './bottom-tabs-navigator';
+import {useUserStore} from 'store/user-store';
 
 export type AppStackParamList = {
   Home: undefined;
@@ -31,26 +33,53 @@ export type AppStackParamList = {
   SignUp: undefined;
   Login: undefined;
   Pin: undefined;
+  Profile: undefined;
+  Tabs: undefined;
+  EditProfile: undefined;
+  Loading: undefined;
 };
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
-export const StackNavigator = () => (
-  <Stack.Navigator screenOptions={{headerShown: false}}>
-    <Stack.Screen name={RouteNames.pin} component={PinScreen} />
-    <Stack.Screen name={RouteNames.onboarding} component={OnboardingScreen} />
-    <Stack.Screen name={RouteNames.signUp} component={SignUpScreen} />
-    <Stack.Screen name={RouteNames.login} component={LoginScreen} />
-    <Stack.Screen name={RouteNames.home} component={HomeScreen} />
-    <Stack.Screen name={RouteNames.transaction} component={TransactionScreen} />
-    <Stack.Screen
-      name={RouteNames.transactionDetail}
-      component={TransactionDetailScreen}
-    />
-    <Stack.Screen
-      name={RouteNames.picker}
-      component={PickerScreen}
-      options={{presentation: 'modal'}}
-    />
-  </Stack.Navigator>
-);
+export const StackNavigator = () => {
+  const {user} = useUserStore();
+
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      {user.email.length ? (
+        <>
+          <Stack.Screen
+            name={RouteNames.tabs}
+            component={BottomTabsNavigator}
+          />
+          <Stack.Screen
+            name={RouteNames.editProfile}
+            component={EditProfileScreen}
+          />
+          <Stack.Screen
+            name={RouteNames.transaction}
+            component={TransactionScreen}
+          />
+          <Stack.Screen
+            name={RouteNames.transactionDetail}
+            component={TransactionDetailScreen}
+          />
+          <Stack.Screen
+            name={RouteNames.picker}
+            component={PickerScreen}
+            options={{presentation: 'modal'}}
+          />
+        </>
+      ) : (
+        <>
+          <Stack.Screen
+            name={RouteNames.onboarding}
+            component={OnboardingScreen}
+          />
+          <Stack.Screen name={RouteNames.signUp} component={SignUpScreen} />
+          <Stack.Screen name={RouteNames.login} component={LoginScreen} />
+        </>
+      )}
+    </Stack.Navigator>
+  );
+};

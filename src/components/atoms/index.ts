@@ -3,5 +3,7 @@ export {BaseButton} from './base-button';
 export {BaseHeader} from './base-header';
 export {BasePickerButton} from './base-picker-button';
 export {SafeArea} from './safe-area';
-export {AttachmentButton} from './attachment-button';
 export {TransactionCard} from './transaction-card';
+export {BaseImage} from './base-image/base-image';
+export {TabBar} from './tab-bar/tab-bar';
+export {PhotoModal} from './photo-modal/photo-modal';

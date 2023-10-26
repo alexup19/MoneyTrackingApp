@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 
+import {Colors} from 'theme/colors';
 import {scale, verticalScale} from 'utils/scaling';
 
 export const Container = styled.View`
@@ -16,5 +17,5 @@ export const Form = styled.View`
 
 export const ErrorText = styled.Text`
   font-size: ${verticalScale(14)}px;
-  color: #fd3c4a;
+  color: ${Colors.red[100]};
 `;

@@ -3,7 +3,8 @@ import styled from 'styled-components/native';
 import {verticalScale, scale} from 'utils/scaling';
 
 export const Container = styled.View`
-  padding-horizontal: ${scale(20)}px;
+  padding: 0px ${scale(20)}px;
+  margin-bottom: ${verticalScale(24)}px;
 `;
 
 export const AddButton = styled.TouchableOpacity`
@@ -14,5 +15,9 @@ export const AddButton = styled.TouchableOpacity`
 
 export const ItemSeparator = styled.View`
   height: ${verticalScale(8)}px;
-  width: 100%;
+`;
+
+export const ListHeader = styled.View`
+  height: ${verticalScale(56)}px;
+  justify-content: center;
 `;

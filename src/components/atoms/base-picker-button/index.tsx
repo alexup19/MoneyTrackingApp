@@ -6,7 +6,7 @@ import {PickerButton, PickerButtonText} from './styles';
 import {BasePickerProps} from './types';
 
 export const BasePickerButton = (props: BasePickerProps) => (
-  <PickerButton {...props}>
+  <PickerButton borderColor={props.borderColor} {...props}>
     <PickerButtonText active={props.value?.length}>
       {props.value || props.placeholder}
     </PickerButtonText>

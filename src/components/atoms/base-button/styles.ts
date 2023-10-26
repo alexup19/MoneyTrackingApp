@@ -2,13 +2,15 @@ import styled from 'styled-components/native';
 
 import {verticalScale, scale} from 'utils/scaling';
 
-export const Button = styled.TouchableOpacity`
+import {ButtonProps} from './types';
+
+export const Button = styled.TouchableOpacity<ButtonProps>`
   width: 100%;
   height: ${verticalScale(56)}px;
   padding: ${scale(8)}px;
   justify-content: center;
   align-items: center;
-  background-color: #7f3dff;
+  background-color: ${props => props.backgroundColor || '#7f3dff'};
   border-radius: 16px;
 `;
 

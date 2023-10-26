@@ -17,7 +17,7 @@ export type User = {
   name: string;
   email: string;
   password: string;
-  photo: string;
+  photo?: string;
 };
 
 export enum TransactionCategoryTypes {

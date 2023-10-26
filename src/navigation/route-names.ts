@@ -7,4 +7,9 @@ export enum RouteNames {
   signUp = 'SignUp',
   login = 'Login',
   pin = 'Pin',
+  pokemonList = 'PokemonList',
+  pokemon = 'Pokemon',
+  profile = 'Profile',
+  tabs = 'Tabs',
+  editProfile = 'EditProfile',
 }

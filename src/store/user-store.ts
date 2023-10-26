@@ -8,6 +8,7 @@ interface UserState {
   user: User;
   pin: string;
   setUser: (newUser: User) => void;
+  logOut: () => void;
 }
 
 export const useUserStore = create<UserState>()(
@@ -21,6 +22,16 @@ export const useUserStore = create<UserState>()(
       },
       pin: '',
       setUser: (newUser: User) => set(() => ({user: newUser})),
+      logOut: () =>
+        set(() => ({
+          user: {
+            name: '',
+            email: '',
+            password: '',
+            photo: '',
+          },
+          pin: '',
+        })),
       setPin: (newPin: string) => set(() => ({pin: newPin})),
     }),
     {

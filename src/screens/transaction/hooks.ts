@@ -1,11 +1,27 @@
 import {useState} from 'react';
-import {useTransactionStore} from 'store/transaction-store';
 
-import {
-  TransactionCategory,
-  PickerItem,
-  TransactionTypes,
-} from 'utils/general-types';
+import * as yup from 'yup';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {useForm} from 'react-hook-form';
+
+import {useTransactionStore} from 'store/transaction-store';
+import {PickerItem, TransactionTypes} from 'utils/general-types';
+
+import {FormValuesProps} from './types';
+
+const schema = yup.object().shape({
+  amount: yup.string().required('Amount is required'),
+  title: yup.string().required('Title is required'),
+  category: yup
+    .object()
+    .shape({
+      title: yup.string().required(),
+      id: yup.string().required(),
+      color: yup.string().required(),
+      secondaryColor: yup.string().required(),
+    })
+    .required('Category is required'),
+});
 
 export const useTransaction = (
   type: TransactionTypes,
@@ -21,25 +37,34 @@ export const useTransaction = (
 
   const transaction = getTransaction(transactionId);
 
-  const [amount, setAmount] = useState(String(transaction?.amount || '0'));
-  const [title, setTitle] = useState(transaction?.title || '');
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      amount: String(transaction?.amount || ''),
+      title: transaction?.title || '',
+      category: transaction?.category || {
+        title: '',
+        id: '',
+        color: '',
+        secondaryColor: '',
+      },
+    },
+  });
+
   const [date, setDate] = useState(
     transaction?.date ? new Date(transaction?.date) : new Date(),
-  );
-  const [category, setCategory] = useState<TransactionCategory>(
-    transaction?.category || {
-      title: '',
-      id: '',
-      color: '',
-      secondaryColor: '',
-    },
   );
   const [description, setDescription] = useState(
     transaction?.description || '',
   );
+  const [attachment, setAttachment] = useState(transaction?.attachment || '');
   const [wallet, setWallet] = useState<PickerItem>({title: '', id: ''});
 
-  const saveTransaction = () => {
+  const saveTransaction = ({title, category, amount}: FormValuesProps) => {
     if (transactionId) {
       if (transaction?.type === TransactionTypes.income) {
         addIncome(transaction?.amount * -1);
@@ -55,7 +80,7 @@ export const useTransaction = (
         date,
         category,
         type,
-        attachment: '',
+        attachment,
       });
     } else {
       addTransaction({
@@ -66,24 +91,23 @@ export const useTransaction = (
         date,
         category,
         type,
-        attachment: '',
+        attachment,
       });
     }
   };
 
   return {
-    amount,
-    title,
+    control,
     date,
-    category,
     description,
+    errors,
+    attachment,
     wallet,
-    setAmount,
-    setTitle,
+    handleSubmit,
     setDate,
-    setCategory,
     setDescription,
     setWallet,
     saveTransaction,
+    setAttachment,
   };
 };

@@ -1,11 +1,12 @@
-import React, {useCallback, useMemo, useRef} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 
-import {StatusBar, View, Text} from 'react-native';
+import {StatusBar} from 'react-native';
+
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import dayjs from 'dayjs';
-import BottomSheet from '@gorhom/bottom-sheet';
+// import BottomSheet from '@gorhom/bottom-sheet';
 
-import {BaseHeader, BaseButton} from 'atoms';
+import {BaseHeader, BaseButton, PhotoModal} from 'atoms';
 import {TrashIcon} from 'icons';
 
 import {TransactionDetailScreenProps} from './types';
@@ -13,24 +14,20 @@ import {useTransactionStore} from 'store/transaction-store';
 import {
   Header,
   SafeAreaView,
-  AmountText,
-  TitleText,
   DateContainer,
-  DateText,
   InfoCard,
-  InfoCardTitle,
-  InfoCardDescription,
   InfoTextContainer,
   Body,
   DashSeparator,
-  BodyText,
-  BodyTitleText,
   Attachment,
+  AttachmentButton,
   Container,
   InfoContainer,
   TrashButton,
 } from './styles';
 import {RouteNames} from 'navigation/route-names';
+import {TitleX, Regular1, Regular2, Regular3, Small} from 'theme/text';
+import {Colors} from 'theme/colors';
 
 export const TransactionDetailScreen: React.FC<
   TransactionDetailScreenProps
@@ -39,9 +36,12 @@ export const TransactionDetailScreen: React.FC<
 
   const {removeTransaction, getTransaction} = useTransactionStore();
 
+  const [isModalVisible, setVisible] = useState(false);
+
   const transaction = getTransaction(transactionId);
 
-  const {amount, description, title, type, category, date} = transaction;
+  const {amount, description, title, type, category, date, attachment} =
+    transaction;
 
   const insets = useSafeAreaInsets();
 
@@ -79,46 +79,62 @@ export const TransactionDetailScreen: React.FC<
           }
           canGoBack
         />
-        <AmountText>${amount}</AmountText>
-        <TitleText>{title}</TitleText>
+        <TitleX align="center" color={Colors.light[80]} fontSize={48}>
+          ${amount}
+        </TitleX>
+        <Regular1 align="center" color={Colors.light[80]}>
+          {title}
+        </Regular1>
         <DateContainer>
-          <DateText>{dayjs(date).format('dddd D MMMM YYYY')}</DateText>
-          <DateText>{dayjs(date).format('h:mm A')}</DateText>
+          <Small color={Colors.light[80]}>
+            {dayjs(date).format('dddd D MMMM YYYY')}
+          </Small>
+          <Small color={Colors.light[80]}>{dayjs(date).format('h:mm A')}</Small>
         </DateContainer>
       </Header>
-      <InfoCard>
+      <InfoCard topInset={insets.top}>
         <InfoTextContainer>
-          <InfoCardTitle>Type</InfoCardTitle>
-          <InfoCardDescription>{type}</InfoCardDescription>
+          <Regular3 align="center" color={Colors.dark[25]}>
+            Type
+          </Regular3>
+          <Regular2 align="center" color={Colors.dark[100]}>
+            {type}
+          </Regular2>
         </InfoTextContainer>
         <InfoTextContainer>
-          <InfoCardTitle>Category</InfoCardTitle>
-          <InfoCardDescription>{category.title}</InfoCardDescription>
+          <Regular3 align="center" color={Colors.dark[25]}>
+            Category
+          </Regular3>
+          <Regular2 align="center" color={Colors.dark[100]}>
+            {category.title}
+          </Regular2>
         </InfoTextContainer>
         <InfoTextContainer>
-          <InfoCardTitle>Wallet</InfoCardTitle>
-          <InfoCardDescription>N/A</InfoCardDescription>
+          <Regular3 align="center" color={Colors.dark[25]}>
+            Wallet
+          </Regular3>
+          <Regular2 align="center" color={Colors.dark[100]}>
+            N/A
+          </Regular2>
         </InfoTextContainer>
       </InfoCard>
       <InfoContainer>
         <Body>
           <DashSeparator />
-          <BodyTitleText>Description</BodyTitleText>
-          <BodyText>{description || 'N/A'}</BodyText>
-          <BodyTitleText>Attachment</BodyTitleText>
-          <Attachment />
+          <Regular2 color={Colors.dark[25]}>Description</Regular2>
+          <Regular1 color={Colors.dark[100]}>{description || 'N/A'}</Regular1>
+          <Regular2 color={Colors.dark[25]}>Attachment</Regular2>
+          <AttachmentButton onPress={() => setVisible(true)}>
+            <Attachment source={attachment} />
+          </AttachmentButton>
+          <PhotoModal
+            photo={attachment}
+            visible={isModalVisible}
+            onBackgroundPress={() => setVisible(false)}
+          />
         </Body>
         <BaseButton title="Edit" onPress={editTransaction} />
       </InfoContainer>
-      {/* <BottomSheet
-        ref={bottomSheetRef}
-        index={1}
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}>
-        <View>
-          <Text>Awesome 🎉</Text>
-        </View>
-      </BottomSheet> */}
     </Container>
   );
 };

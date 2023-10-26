@@ -3,12 +3,15 @@ import styled from 'styled-components/native';
 import {verticalScale, scale} from 'utils/scaling';
 
 import {CardIconProps} from './types';
+import { Colors } from 'theme/colors';
 
 export const Card = styled.TouchableOpacity`
   width: 100%;
   padding: ${scale(16)}px ${verticalScale(16)}px;
   flex-direction: row;
   gap: ${scale(10)}px;
+  background-color: ${Colors.light[80]};
+  border-radius: 24px;
 `;
 
 export const CardIcon = styled.View<CardIconProps>`

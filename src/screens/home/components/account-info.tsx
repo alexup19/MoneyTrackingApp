@@ -31,13 +31,14 @@ export const AmountText = styled.Text`
 
 export const SummaryContainer = styled.View`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  gap: ${scale(16)}px;
   margin-top: ${verticalScale(27)}px;
 `;
 
 export const IncomeSummary = styled.View`
-  width: ${scale(164)}px;
-  height: ${verticalScale(80)}px;
+  flex: 1;
+  padding: 16px 0px;
   border-radius: 28px;
   background-color: #00a86b;
   flex-direction: row;

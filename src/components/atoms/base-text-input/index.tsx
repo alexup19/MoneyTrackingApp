@@ -1,9 +1,12 @@
 import React from 'react';
 
-import {TextInputProps} from 'react-native';
-
 import {TextInput} from './styles';
+import {BaseInputProps} from './types';
 
-export const BaseTextInput = (props: TextInputProps) => (
-  <TextInput placeholderTextColor="#91919f" {...props} />
+export const BaseTextInput = (props: BaseInputProps) => (
+  <TextInput
+    placeholderTextColor="#91919f"
+    borderColor={props.borderColor}
+    {...props}
+  />
 );

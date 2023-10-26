@@ -14,3 +14,11 @@ export type TransactionDetailScreenProps = NativeStackScreenProps<
 export type SafeAreaProps = SafeAreaViewProps & {
   type?: TransactionTypes;
 };
+
+export type HeaderProps = {
+  type: TransactionTypes;
+};
+
+export type InfoCardProps = {
+  topInset: number;
+};

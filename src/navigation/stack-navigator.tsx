@@ -11,11 +11,12 @@ import {
   LoginScreen,
   EditProfileScreen,
 } from 'screens';
-import {RouteNames} from './route-names';
+
 import {PickerItem, TransactionTypes} from 'utils/general-types';
+import {useUserStore} from 'store/user-store';
 
 import {BottomTabsNavigator} from './bottom-tabs-navigator';
-import {useUserStore} from 'store/user-store';
+import {RouteNames} from './route-names';
 
 export type AppStackParamList = {
   Home: undefined;

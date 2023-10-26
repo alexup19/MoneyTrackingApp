@@ -1,3 +1,5 @@
+import {Colors} from 'theme/colors';
+
 export enum TransactionTypes {
   expense = 'Expense',
   income = 'Income',
@@ -33,38 +35,38 @@ export const TransactionCategories: TransactionCategory[] = [
   {
     id: TransactionCategoryTypes.shopping,
     title: 'Shopping',
-    color: '#FCAC12',
-    secondaryColor: '#FCEED4',
+    color: Colors.yellow[100],
+    secondaryColor: Colors.yellow[20],
   },
   {
     id: TransactionCategoryTypes.subscription,
     title: 'Subscription',
-    color: '#7F3DFF',
-    secondaryColor: '#EEE5FF',
+    color: Colors.violet[100],
+    secondaryColor: Colors.violet[20],
   },
   {
     id: TransactionCategoryTypes.food,
     title: 'Food',
-    color: '#FD3C4A',
-    secondaryColor: '#FDD5D7',
+    color: Colors.red[100],
+    secondaryColor: Colors.red[20],
   },
   {
     id: TransactionCategoryTypes.transportation,
     title: 'Transportation',
-    color: '#0077FF',
-    secondaryColor: '#BDDCFF',
+    color: Colors.blue[100],
+    secondaryColor: Colors.blue[20],
   },
   {
     id: TransactionCategoryTypes.salary,
     title: 'Salary',
-    color: '#00A86B',
-    secondaryColor: '#CFFAEA',
+    color: Colors.green[100],
+    secondaryColor: Colors.green[20],
   },
   {
     id: TransactionCategoryTypes.other,
     title: 'Other',
-    color: '#f533ad',
-    secondaryColor: '#ffccec',
+    color: Colors.pink[100],
+    secondaryColor: Colors.pink[20],
   },
 ];
 

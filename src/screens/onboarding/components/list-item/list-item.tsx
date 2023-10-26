@@ -1,10 +1,9 @@
 import React from 'react';
 
-import {ImageContainer, Slide, SubTitle, TextContainer, Title} from '../styles';
+import {ImageContainer, Slide, SubTitle, TextContainer, Title} from './styles';
+import {SlideProps} from './types';
 
-import {SlideProps} from '../types';
-
-export const ListItem = ({item}: {item: SlideProps}) => (
+export const ListItem: React.FC<SlideProps> = ({item}) => (
   <Slide>
     <ImageContainer>{item.illustration}</ImageContainer>
     <TextContainer>

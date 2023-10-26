@@ -21,7 +21,7 @@ const BaseText = styled.Text<ThemeTextProps>`
   letter-spacing: 0px;
 `;
 
-export const TitleX = styled(BaseText)`
+export const TitleX = styled(BaseText)<ThemeTextProps>`
   font-size: ${props => verticalScale(props.fontSize || 64)}px;
   font-weight: ${props => props.weight || 700};
   line-height: ${props => verticalScale(props.lineHeight || 80)}px;
@@ -35,17 +35,19 @@ export const Title1 = styled(TitleX)`
 export const Title2 = styled(Title1)`
   font-size: ${verticalScale(22)}px;
   line-height: ${verticalScale(24)}px;
+  font-weight: 600;
 `;
 
 export const Title3 = styled(Title1)`
   font-size: ${verticalScale(18)}px;
   line-height: ${verticalScale(22)}px;
+  font-weight: 600;
 `;
 
-export const Regular1 = styled(BaseText)`
+export const Regular1 = styled(BaseText)<ThemeTextProps>`
   font-size: ${verticalScale(16)}px;
-  font-weight: 500;
-  line-height: ${verticalScale(19)}px;
+  font-weight: ${props => props.weight || 500};
+  line-height: ${props => verticalScale(props.lineHeight || 18)}px;
 `;
 
 export const Regular2 = styled(Regular1)`

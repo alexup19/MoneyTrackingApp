@@ -9,9 +9,9 @@ import {
   Dot,
   width,
   DOT_WIDTH,
-} from '../styles';
+} from './styles';
 
-import {IDot} from '../types';
+import {IDot} from './types';
 
 export const Pagination = ({data, scrollX}: IDot) => (
   <PaginationContainer>

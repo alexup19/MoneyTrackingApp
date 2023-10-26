@@ -13,7 +13,7 @@ export const Button = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  border: 1px dashed #91919f;
+  border: 1px dashed ${Colors.light[20]};
   gap: ${scale(10)}px;
 `;
 

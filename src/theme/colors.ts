@@ -47,4 +47,8 @@ export const Colors = {
     80: '#248AFF',
     100: '#0077FF',
   },
+  pink: {
+    20: '#ffccec',
+    100: '#f533ad',
+  },
 };

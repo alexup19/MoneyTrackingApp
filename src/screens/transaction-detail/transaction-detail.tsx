@@ -1,16 +1,19 @@
-import React, {useCallback, useMemo, useRef, useState} from 'react';
+import React, {useState} from 'react';
 
 import {StatusBar} from 'react-native';
 
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import dayjs from 'dayjs';
-// import BottomSheet from '@gorhom/bottom-sheet';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {BaseHeader, BaseButton, PhotoModal} from 'atoms';
 import {TrashIcon} from 'icons';
 
-import {TransactionDetailScreenProps} from './types';
+import {RouteNames} from 'navigation/route-names';
 import {useTransactionStore} from 'store/transaction-store';
+import {Colors} from 'theme/colors';
+import {TitleX, Regular1, Regular2, Regular3, Small} from 'theme/text';
+
+import {TransactionDetailScreenProps} from './types';
 import {
   Header,
   SafeAreaView,
@@ -25,9 +28,6 @@ import {
   InfoContainer,
   TrashButton,
 } from './styles';
-import {RouteNames} from 'navigation/route-names';
-import {TitleX, Regular1, Regular2, Regular3, Small} from 'theme/text';
-import {Colors} from 'theme/colors';
 
 export const TransactionDetailScreen: React.FC<
   TransactionDetailScreenProps
@@ -54,22 +54,11 @@ export const TransactionDetailScreen: React.FC<
     navigation.navigate(RouteNames.transaction, {type, transactionId});
   };
 
-  // ref
-  const bottomSheetRef = useRef<BottomSheet>(null);
-
-  // variables
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
-
-  // callbacks
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log('handleSheetChanges', index);
-  }, []);
-
   return (
     <Container>
       <StatusBar barStyle="light-content" />
       <SafeAreaView type={type} />
-      <Header topInset={insets.top} type={type}>
+      <Header type={type}>
         <BaseHeader
           title="Detail Transaction"
           rightButton={

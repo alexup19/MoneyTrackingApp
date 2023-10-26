@@ -10,20 +10,14 @@ import {
   SalaryIcon,
   TransportationIcon,
 } from 'icons';
+
+import {RouteNames} from 'navigation/route-names';
+import {Colors} from 'theme/colors';
+import {Regular1, Regular2, Small, Title1} from 'theme/text';
 import {TransactionCategoryTypes, TransactionTypes} from 'utils/general-types';
 
-import {
-  Card,
-  CardIcon,
-  CardTitle,
-  TextContainer,
-  CardSubTitle,
-  SubtitleTextContainer,
-  AmountText,
-  OtherText,
-} from './styles';
-import {TransactionCardProps} from './types';
-import {RouteNames} from 'navigation/route-names';
+import {Card, CardIcon, TextContainer, SubtitleTextContainer} from './styles';
+import {CardNavigationProps, TransactionCardProps} from './types';
 
 const TransactionIcon = ({id}: {id: string}) => {
   switch (id) {
@@ -38,14 +32,16 @@ const TransactionIcon = ({id}: {id: string}) => {
     case TransactionCategoryTypes.subscription:
       return <RecurringBillIcon />;
     default:
-      return <OtherText>...</OtherText>;
+      return <Title1 color={Colors.pink[100]}>...</Title1>;
   }
 };
 
-export const TransactionCard = ({transaction}: TransactionCardProps) => {
-  const {title, amount, description, date, category, type, id} = transaction;
+export const TransactionCard: React.FC<TransactionCardProps> = ({
+  transaction,
+}) => {
+  const {title, amount, date, category, type, id} = transaction;
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<CardNavigationProps>();
 
   const goToDetails = () => {
     navigation.navigate(RouteNames.transactionDetail, {transactionId: id});
@@ -58,14 +54,21 @@ export const TransactionCard = ({transaction}: TransactionCardProps) => {
       </CardIcon>
       <TextContainer>
         <SubtitleTextContainer>
-          <CardTitle>{category.title}</CardTitle>
-          <AmountText expense={type === TransactionTypes.expense}>
+          <Regular1>{category.title}</Regular1>
+          <Regular2
+            color={
+              type === TransactionTypes.expense
+                ? Colors.red[100]
+                : Colors.green[100]
+            }>
             {type === TransactionTypes.expense ? '-' : '+'} ${amount}
-          </AmountText>
+          </Regular2>
         </SubtitleTextContainer>
         <SubtitleTextContainer>
-          <CardSubTitle>{title}</CardSubTitle>
-          <CardSubTitle>{dayjs(date).format('DD/MM/YYYY')}</CardSubTitle>
+          <Small color={Colors.dark[25]}>{title}</Small>
+          <Small color={Colors.dark[25]}>
+            {dayjs(date).format('DD/MM/YYYY')}
+          </Small>
         </SubtitleTextContainer>
       </TextContainer>
     </Card>

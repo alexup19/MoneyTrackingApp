@@ -4,11 +4,11 @@ import * as ImagePicker from 'expo-image-picker';
 
 import {AttachmentIcon} from 'icons';
 
+import {Colors} from 'theme/colors';
 import {Regular1, Regular3} from 'theme/text';
 
 import {Button, ImageContainer, CloseButton, Image} from './styles';
 import {BaseButtonProps} from './types';
-import {Colors} from 'theme/colors';
 
 export const AttachmentButton = (props: BaseButtonProps) => {
   const {attachment, setAttachment} = props;

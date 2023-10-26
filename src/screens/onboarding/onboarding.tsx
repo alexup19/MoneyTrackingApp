@@ -1,7 +1,8 @@
 import React, {useRef} from 'react';
 
-import {AnimatedFlashList} from '@shopify/flash-list';
 import {Animated} from 'react-native';
+
+import {AnimatedFlashList} from '@shopify/flash-list';
 
 import {BaseButton} from 'atoms';
 import {
@@ -13,7 +14,13 @@ import {
 import {RouteNames} from 'navigation/route-names';
 
 import {ListItem, Pagination} from './components';
-import {ButtonContainer, SafeAreaView, LoginButton, width} from './styles';
+import {
+  ButtonContainer,
+  SafeAreaView,
+  LoginButton,
+  width,
+  buttonStyles,
+} from './styles';
 import {OnboardingScreenProps, SlideProps} from './types';
 
 const slides = [
@@ -38,7 +45,7 @@ const slides = [
 export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
   navigation,
 }) => {
-  const _renderItem = ({item}: {item: SlideProps}) => <ListItem item={item} />;
+  const _renderItem = ({item}: SlideProps) => <ListItem item={item} />;
 
   const _keyExtractor = (item: string, index: number) => `PHC-${item}-${index}`;
 
@@ -73,7 +80,7 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({
         <BaseButton title="Sign Up" onPress={goToSignUp} />
         <LoginButton
           title="Login"
-          textStyle={{color: '#7F3DFF'}}
+          textStyle={buttonStyles.secondaryButton}
           onPress={goToLogin}
         />
       </ButtonContainer>

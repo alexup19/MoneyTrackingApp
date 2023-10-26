@@ -3,10 +3,14 @@ import React, {useState} from 'react';
 import dayjs from 'dayjs';
 import DatePicker from 'react-native-date-picker';
 
-import {DatePickerProps} from './types';
-import {BasePickerButton} from 'atoms/base-picker-button';
+import {BasePickerButton} from 'atoms';
 
-export const DatePickerButton = ({selectedDate, setDate}: DatePickerProps) => {
+import {DatePickerProps} from './types';
+
+export const DatePickerButton: React.FC<DatePickerProps> = ({
+  selectedDate,
+  setDate,
+}) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   return (

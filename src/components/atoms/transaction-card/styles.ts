@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 
+import {Colors} from 'theme/colors';
 import {verticalScale, scale} from 'utils/scaling';
 
 import {CardIconProps} from './types';
-import { Colors } from 'theme/colors';
 
 export const Card = styled.TouchableOpacity`
   width: 100%;
@@ -23,45 +23,13 @@ export const CardIcon = styled.View<CardIconProps>`
   background-color: ${props => props.color};
 `;
 
-export const CardTitle = styled.Text`
-  font-family: Inter;
-  font-size: ${verticalScale(16)}px;
-  font-weight: 500;
-  line-height: ${verticalScale(20)}px;
-  color: #292b2d;
-`;
-
-export const CardSubTitle = styled.Text`
-  font-family: Inter;
-  font-size: ${verticalScale(13)}px;
-  font-weight: 500;
-  line-height: ${verticalScale(16)}px;
-  color: #91919f;
-`;
-
 export const TextContainer = styled.View`
   justify-content: space-between;
   flex: 1;
-  padding-vertical: ${verticalScale(6)}px;
+  padding: ${verticalScale(6)}px 0px;
 `;
 
 export const SubtitleTextContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
-`;
-
-export const AmountText = styled.Text`
-  font-family: Inter;
-  font-size: ${verticalScale(16)}px;
-  font-weight: 600;
-  line-height: ${verticalScale(20)}px;
-  color: ${props => (props.expense ? '#FD3C4A' : '#00A86B')};
-`;
-
-export const OtherText = styled.Text`
-  font-family: Inter;
-  font-size: ${verticalScale(30)}px;
-  text-align: center;
-  font-weight: 600;
-  color: purple;
 `;

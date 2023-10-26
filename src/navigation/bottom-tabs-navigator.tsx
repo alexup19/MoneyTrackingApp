@@ -1,11 +1,14 @@
 import React from 'react';
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  createBottomTabNavigator,
+  BottomTabBarProps,
+} from '@react-navigation/bottom-tabs';
 
+import {TabBar} from 'atoms';
 import {HomeScreen, ProfileScreen} from 'screens';
 
 import {RouteNames} from './route-names';
-import {TabBar} from 'atoms';
 
 export type AppStackParamList = {
   Home: undefined;
@@ -14,9 +17,11 @@ export type AppStackParamList = {
 
 const Tab = createBottomTabNavigator<AppStackParamList>();
 
+const _tabBar = (props: BottomTabBarProps) => <TabBar {...props} />;
+
 export const BottomTabsNavigator = () => {
   return (
-    <Tab.Navigator tabBar={props => <TabBar {...props} />}>
+    <Tab.Navigator tabBar={_tabBar}>
       <Tab.Screen
         name={RouteNames.home}
         component={HomeScreen}

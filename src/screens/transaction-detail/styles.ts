@@ -6,14 +6,14 @@ import {Colors} from 'theme/colors';
 import {TransactionTypes} from 'utils/general-types';
 import {verticalScale, scale} from 'utils/scaling';
 
-import {SafeAreaProps} from './types';
+import {SafeAreaProps, HeaderProps, InfoCardProps} from './types';
 
 export const Container = styled.ScrollView`
   flex: 1;
   background-color: ${Colors.light[100]};
 `;
 
-export const Header = styled.View`
+export const Header = styled.View<HeaderProps>`
   width: 100%;
   padding-bottom: ${verticalScale(48)}px;
   border-radius: 0px 0px 16px 16px;
@@ -38,10 +38,10 @@ export const DateContainer = styled.View`
   gap: ${scale(12)}px;
 `;
 
-export const InfoCard = styled.View`
-  background-color: #ffffff;
+export const InfoCard = styled.View<InfoCardProps>`
+  background-color: ${Colors.light[100]};
   border-radius: 12px;
-  border: 1px solid #f1f1fa;
+  border: 1px solid ${Colors.light[20]};
   top: ${props => props.topInset + verticalScale(208)}px;
   height: ${verticalScale(70)}px;
   width: ${scale(343)}px;

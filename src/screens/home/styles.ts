@@ -7,12 +7,6 @@ export const Container = styled.View`
   margin-bottom: ${verticalScale(24)}px;
 `;
 
-export const AddButton = styled.TouchableOpacity`
-  width: 40px;
-  height: 40px;
-  background-color: purple;
-`;
-
 export const ItemSeparator = styled.View`
   height: ${verticalScale(8)}px;
 `;

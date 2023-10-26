@@ -4,6 +4,8 @@ import {SafeArea, BaseHeader} from 'atoms';
 import {UserForm} from 'organisms';
 
 import {useUserStore} from 'store/user-store';
+import {Colors} from 'theme/colors';
+import {User} from 'utils/general-types';
 
 import {Container} from './styles';
 import {EditProfileScreenProps} from './types';
@@ -13,17 +15,7 @@ export const EditProfileScreen: React.FC<EditProfileScreenProps> = ({
 }) => {
   const {setUser} = useUserStore();
 
-  const onSubmit = ({
-    name,
-    email,
-    password,
-    photo = '',
-  }: {
-    name: string;
-    email: string;
-    password: string;
-    photo?: string;
-  }) => {
+  const onSubmit = ({name, email, password, photo = ''}: User) => {
     setUser({
       name,
       email,
@@ -36,7 +28,7 @@ export const EditProfileScreen: React.FC<EditProfileScreenProps> = ({
 
   return (
     <SafeArea>
-      <BaseHeader title="Edit Profile" color="#212325" canGoBack />
+      <BaseHeader title="Edit Profile" color={Colors.dark[50]} canGoBack />
       <Container>
         <UserForm buttonText="Edit" onSubmit={onSubmit} />
       </Container>

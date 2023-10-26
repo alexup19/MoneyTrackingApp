@@ -1,21 +1,21 @@
 import React from 'react';
 
 import {SafeAreaView} from './styles';
-import {SafeAreaProps} from './types';
+import {SafeAreViewProps} from './types';
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-export const SafeArea = ({children, backgroundColor, style}: SafeAreaProps) => {
+export const SafeArea: React.FC<SafeAreViewProps> = props => {
   const insets = useSafeAreaInsets();
 
   return (
     <SafeAreaView
-      backgroundColor={backgroundColor}
+      backgroundColor={props.backgroundColor}
       style={{
         paddingTop: insets.top,
-        ...style,
-      }}>
-      {children}
+      }}
+      {...props}>
+      {props.children}
     </SafeAreaView>
   );
 };

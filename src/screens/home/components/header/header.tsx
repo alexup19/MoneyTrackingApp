@@ -65,7 +65,7 @@ export const Header: React.FC = () => {
     <Container>
       <Image source={user.photo} />
       <AddButton onPress={handlePresentModalPress}>
-        <PlusIcon width={verticalScale(24)} height={verticalScale(24)} />
+        <PlusIcon width={verticalScale(20)} height={verticalScale(20)} />
       </AddButton>
       <BottomSheetModal
         ref={bottomSheetModalRef}

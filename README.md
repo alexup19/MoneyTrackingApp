@@ -14,9 +14,9 @@ An income and expense management app for iOS and Android powered by React Native
 - Form Validations
 - Performant Infinite List
 - React Navigation
+- SVG Icons
 - State Management with [Zustand](https://github.com/pmndrs/zustand)
 - Styled Components
-- SVG Icons
 - TypeScript
 ## Resources
 

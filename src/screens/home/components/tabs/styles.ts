@@ -5,7 +5,9 @@ import styled from 'styled-components/native';
 import {Colors} from 'theme/colors';
 import {verticalScale, scale} from 'utils/scaling';
 
-export const TabButton = styled.View`
+import {TabProps} from './types';
+
+export const TabButton = styled.View<TabProps>`
   width: ${scale(68)}px;
   height: ${verticalScale(34)}px;
   background-color: ${props =>

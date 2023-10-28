@@ -1,45 +1,38 @@
-import {TransactionCard} from 'components/atoms';
-import * as React from 'react';
-import {FlatList, useWindowDimensions} from 'react-native';
-import {TabView, TabBar} from 'react-native-tab-view';
-import {ListHeader, ItemSeparator} from 'screens/home/styles';
-import {useTransactionStore} from 'store/transaction-store';
-import {Regular1, Title3} from 'theme/text';
-import {Transaction} from 'utils/general-types';
+import React from 'react';
+
+import {useWindowDimensions} from 'react-native';
 
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
+import {TabView, TabBar, TabBarProps, Route} from 'react-native-tab-view';
+
+import {TransactionList} from 'molecules';
+
 import {Colors} from 'theme/colors';
+import {Regular1} from 'theme/text';
+import {useTransactionStore} from 'store/transaction-store';
 
 import {TabButton, tabBarStyles} from './styles';
 
 dayjs.extend(isBetween);
 
-const Route = ({transactions, title}) => {
-  const _renderItem = ({item}: {item: Transaction}) => (
-    <TransactionCard transaction={item} />
-  );
-
-  const _listHeaderComponent = () => (
-    <ListHeader>
-      <Title3>{title}</Title3>
-    </ListHeader>
-  );
-
-  const _keyExtractor = (item: Transaction) => String(item.id);
-
-  return (
-    <FlatList
-      data={transactions}
-      renderItem={_renderItem}
-      ListHeaderComponent={_listHeaderComponent}
-      ItemSeparatorComponent={ItemSeparator}
-      keyExtractor={_keyExtractor}
-      contentContainerStyle={{paddingHorizontal: 20, paddingBottom: 90}}
-      showsVerticalScrollIndicator={false}
-    />
-  );
-};
+const renderTabBar = (props: TabBarProps<Route>) => (
+  <TabBar
+    {...props}
+    renderLabel={({focused, route}) => {
+      return (
+        <TabButton focused={focused}>
+          <Regular1 color={focused ? Colors.yellow[100] : Colors.light[20]}>
+            {route.title}
+          </Regular1>
+        </TabButton>
+      );
+    }}
+    tabStyle={tabBarStyles.tab}
+    style={tabBarStyles.bar}
+    indicatorStyle={tabBarStyles.indicator}
+  />
+);
 
 export const Tabs = () => {
   const layout = useWindowDimensions();
@@ -54,9 +47,10 @@ export const Tabs = () => {
     {key: 'all', title: 'All'},
   ]);
 
-  const {transactions} = useTransactionStore();
+  const {getTransactions} = useTransactionStore();
+  const transactions = getTransactions();
 
-  const getTransactions = (startDate, endDate) =>
+  const filterTransactions = (startDate: string, endDate: string) =>
     transactions.filter(transaction =>
       dayjs(dayjs(transaction.date).format('YYYY-MM-DD')).isBetween(
         startDate,
@@ -66,13 +60,13 @@ export const Tabs = () => {
       ),
     );
 
-  const renderScene = ({route}) => {
+  const renderScene = ({route}: {route: Route}) => {
     switch (route.key) {
       case 'today':
         return (
-          <Route
+          <TransactionList
             title={route.title}
-            transactions={getTransactions(
+            transactions={filterTransactions(
               dayjs().format('YYYY-MM-DD'),
               dayjs().format('YYYY-MM-DD'),
             )}
@@ -80,9 +74,9 @@ export const Tabs = () => {
         );
       case 'week':
         return (
-          <Route
+          <TransactionList
             title="This Week"
-            transactions={getTransactions(
+            transactions={filterTransactions(
               dayjs().subtract(7, 'day').format('YYYY-MM-DD'),
               dayjs().format('YYYY-MM-DD'),
             )}
@@ -90,9 +84,9 @@ export const Tabs = () => {
         );
       case 'month':
         return (
-          <Route
+          <TransactionList
             title="This Month"
-            transactions={getTransactions(
+            transactions={filterTransactions(
               dayjs().subtract(1, 'month').format('YYYY-MM-DD'),
               dayjs().format('YYYY-MM-DD'),
             )}
@@ -100,36 +94,23 @@ export const Tabs = () => {
         );
       case 'year':
         return (
-          <Route
+          <TransactionList
             title="This Year"
-            transactions={getTransactions(
+            transactions={filterTransactions(
               dayjs().subtract(1, 'year').format('YYYY-MM-DD'),
               dayjs().format('YYYY-MM-DD'),
             )}
           />
         );
       default:
-        return <Route title="All Transactions" transactions={transactions} />;
+        return (
+          <TransactionList
+            title="All Transactions"
+            transactions={transactions}
+          />
+        );
     }
   };
-
-  const renderTabBar = props => (
-    <TabBar
-      {...props}
-      renderLabel={({focused, route}) => {
-        return (
-          <TabButton focused={focused}>
-            <Regular1 color={focused ? Colors.yellow[100] : Colors.light[20]}>
-              {route.title}
-            </Regular1>
-          </TabButton>
-        );
-      }}
-      tabStyle={tabBarStyles.tab}
-      style={tabBarStyles.bar}
-      indicatorStyle={tabBarStyles.indicator}
-    />
-  );
 
   return (
     <TabView

@@ -25,7 +25,7 @@ export const useLogin = () => {
     },
   });
 
-  const {user} = useUserStore();
+  const {getUser, setActiveUser} = useUserStore();
 
-  return {user, errors, control, handleSubmit};
+  return {getUser, setActiveUser, errors, control, handleSubmit};
 };

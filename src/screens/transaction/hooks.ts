@@ -5,6 +5,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {useForm} from 'react-hook-form';
 
 import {useTransactionStore} from 'store/transaction-store';
+import {useUserStore} from 'store/user-store';
 import {PickerItem, TransactionTypes} from 'utils/general-types';
 
 import {FormValuesProps} from './types';
@@ -36,6 +37,8 @@ export const useTransaction = (
   } = useTransactionStore();
 
   const transaction = getTransaction(transactionId);
+
+  const {user} = useUserStore();
 
   const {
     control,
@@ -81,6 +84,7 @@ export const useTransaction = (
         category,
         type,
         attachment,
+        userEmail: user.email,
       });
     } else {
       addTransaction({
@@ -92,6 +96,7 @@ export const useTransaction = (
         category,
         type,
         attachment,
+        userEmail: user.email,
       });
     }
   };

@@ -31,7 +31,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({navigation}) => {
   const goToEditScreen = () => navigation.navigate(RouteNames.editProfile);
 
   return (
-    <SafeArea backgroundColor="#F6F6F6">
+    <SafeArea backgroundColor={Colors.light[100]}>
       <InfoContainer>
         <Info>
           <Image source={user.photo} />

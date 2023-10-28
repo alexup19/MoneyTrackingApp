@@ -12,6 +12,7 @@ An income and expense management app for iOS and Android powered by React Native
 - Date Management
 - Design System
 - Form Validations
+- Gallery Image Picker
 - Performant Infinite List
 - React Navigation
 - SVG Icons
@@ -48,8 +49,9 @@ Install dependencies
 Start the App
 
 ```bash
-  npx react-native run-ios
-  npx react-native run-android
+  npm start
+  npm run ios
+  npm run android
 ```
 
 
@@ -58,8 +60,11 @@ Start the App
 - App Icon
 - Dark Mode Support
 - Graphs
+- Multilanguage Support
 - Reminders - Local Notifications with [Notifee](https://notifee.app/)
 - Settings
+- Separate total amounts per account
 - Splash Screen
+- Tests with [Detox](https://wix.github.io/Detox/)
 - Transaction Filters
 - Wallet Management

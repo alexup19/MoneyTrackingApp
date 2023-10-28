@@ -6,22 +6,34 @@ import {User} from 'utils/general-types';
 
 interface UserState {
   user: User;
-  pin: string;
-  setUser: (newUser: User) => void;
+  users: User[];
+  addUser: (newUser: User) => void;
+  getUser: (userEmail: string) => User | undefined;
+  setActiveUser: (newUser: User) => void;
   logOut: () => void;
 }
 
+const addUser = (state: UserState, newUser: User) => ({
+  users: [...state.users, newUser],
+});
+
+const getUser = (users: User[], userEmail: string) =>
+  users.find((user: User) => user.email === userEmail);
+
 export const useUserStore = create<UserState>()(
   persist(
-    set => ({
+    (set, get) => ({
       user: {
         name: '',
         email: '',
         password: '',
         photo: '',
       },
-      pin: '',
-      setUser: (newUser: User) => set(() => ({user: newUser})),
+      users: [],
+      addUser: (newUser: User) =>
+        set((state: UserState) => addUser(state, newUser)),
+      getUser: (userEmail: string) => getUser(get().users, userEmail),
+      setActiveUser: (newUser: User) => set(() => ({user: newUser})),
       logOut: () =>
         set(() => ({
           user: {
@@ -30,9 +42,7 @@ export const useUserStore = create<UserState>()(
             password: '',
             photo: '',
           },
-          pin: '',
         })),
-      setPin: (newPin: string) => set(() => ({pin: newPin})),
     }),
     {
       name: 'user-storage',

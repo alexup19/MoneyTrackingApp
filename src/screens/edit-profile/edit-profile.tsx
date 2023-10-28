@@ -13,10 +13,10 @@ import {EditProfileScreenProps} from './types';
 export const EditProfileScreen: React.FC<EditProfileScreenProps> = ({
   navigation,
 }) => {
-  const {setUser} = useUserStore();
+  const {setActiveUser} = useUserStore();
 
   const onSubmit = ({name, email, password, photo = ''}: User) => {
-    setUser({
+    setActiveUser({
       name,
       email,
       password,

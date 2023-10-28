@@ -6,21 +6,28 @@ import {Controller} from 'react-hook-form';
 
 import {SafeArea, BaseHeader, BaseTextInput, BaseButton} from 'atoms';
 
-import {RouteNames} from 'navigation/route-names';
 import {Colors} from 'theme/colors';
+import {RouteNames} from 'navigation/route-names';
 
 import {useLogin} from './hooks';
 import {Form, ErrorText, Container} from './styles';
 import {LoginScreenProps} from './types';
 
 export const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
-  const {user, errors, control, handleSubmit} = useLogin();
+  const {getUser, setActiveUser, errors, control, handleSubmit} = useLogin();
 
   const onSubmit = ({email, password}: {email: string; password: string}) => {
-    if (email === user.email && password === user.password) {
-      navigation.navigate(RouteNames.home);
+    const user = getUser(email);
+
+    if (user) {
+      if (email === user?.email && password === user?.password) {
+        setActiveUser(user);
+        navigation.navigate(RouteNames.tabs);
+      } else {
+        Alert.alert('Wrong credentials!');
+      }
     } else {
-      Alert.alert('Wrong credentials!');
+      Alert.alert('User does not exist');
     }
   };
 

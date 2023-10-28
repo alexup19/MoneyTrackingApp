@@ -20,6 +20,9 @@ export type User = {
   email: string;
   password: string;
   photo?: string;
+  totalAmount?: number;
+  totalIncome?: number;
+  totalExpenses?: number;
 };
 
 export enum TransactionCategoryTypes {
@@ -79,4 +82,5 @@ export type Transaction = {
   category: TransactionCategory;
   attachment: string;
   amount: number;
+  userEmail: string;
 };

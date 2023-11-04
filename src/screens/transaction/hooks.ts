@@ -68,11 +68,11 @@ export const useTransaction = (
   const [wallet, setWallet] = useState<PickerItem>({title: '', id: ''});
 
   const saveTransaction = ({title, category, amount}: FormValuesProps) => {
-    if (transactionId) {
-      if (transaction?.type === TransactionTypes.income) {
-        addIncome(transaction?.amount * -1);
+    if (transaction?.id) {
+      if (transaction.type === TransactionTypes.income) {
+        addIncome(transaction.amount * -1);
       } else {
-        addExpense(transaction?.amount * -1);
+        addExpense(transaction.amount * -1);
       }
 
       editTransaction({
